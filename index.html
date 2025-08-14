@@ -2,21 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ecosystem of Open Science – Visualizations</title>
+  <title>Ecosystem of Open Science</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    iframe {
+      width: 100%;
+      height: 800px;
+      border: none;
+      margin-top: 2rem;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+  </style>
 </head>
 <body>
   <div class="container">
     <h1>Ecosystem of Open Science</h1>
-    <p class="subtitle">Explore interactive network visualizations from our research.</p>
+    <p class="subtitle">A research story visualized through knowledge graphs and multi-layer networks.</p>
 
-    <ul class="link-list">
-      <li><a href="knowledge_graph.html" target="_blank">📘 Ontology Network (Level 2 – Scroll & Filter)</a></li>
-      <li><a href="multilayer_network.html" target="_blank">🧠 Multilayer Semantic + Citation Network</a></li>
-    </ul>
+    <h2>1. Ontology Network (Level 2 Scroll)</h2>
+    <iframe src="knowledge_graph.html"></iframe>
+
+    <h2>2. Multilayer Semantic + Citation Network</h2>
+    <iframe src="multilayer_network.html"></iframe>
 
     <footer>
-      <p>Created by Yagmur Ilba | Hosted on GitHub Pages</p>
+      <p>Created by Yagmur Ilba | <a href="https://github.com/yagmurilba/Ecosytem-of-Open-Science" target="_blank">GitHub Repo</a></p>
     </footer>
   </div>
 </body>
