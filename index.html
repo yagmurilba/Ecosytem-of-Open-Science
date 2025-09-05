@@ -2,31 +2,259 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Ecosystem of Open Science</title>
+  <title>Tracing the Ecosystem of Open Science</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    iframe {
-      width: 100%;
-      height: 800px;
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+    nav.nav-links {
+      margin: 2rem 0;
+      text-align: center;
+    }
+    nav.nav-links a {
+      margin: 0 1rem;
+      text-decoration: none;
+      font-weight: bold;
+      color: #1a73e8;
+      border-bottom: 2px solid transparent;
+    }
+    nav.nav-links a:hover {
+      border-bottom: 2px solid #1a73e8;
+    }
+    section {
+      background: #ffffff;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+      text-align: left;
+    }
+    h1 {
+      font-size: 2.4rem;
+      color: #1a73e8;
+      text-align: left;
+    }
+    h2, h3 {
+      color: #1a73e8;
+      margin-top: 1rem;
+      text-align: left;
+    }
+    .subtitle {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      text-align: left;
+    }
+    .btn-link {
+      background: #1a73e8;
+      color: white;
+      padding: 0.5rem 1rem;
       border: none;
-      margin-top: 2rem;
-      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+    .btn-link:hover {
+      background: #0b5394;
+    }
+    .graph-preview {
+      margin-top: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .graph-preview img {
+      width: 100%;
+      display: block;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: 4rem;
+    }
+      .abstract-box {
+      background-color: #ffffff;
+      border-left: 4px solid #1a73e8;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0 2rem;
+      box-shadow: 0 0 6px rgba(0,0,0,0.05);
+      text-align: justify;
+      font-style: italic;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Ecosystem of Open Science</h1>
-    <p class="subtitle">A research story visualized through knowledge graphs and multi-layer networks.</p>
+    <h1>Tracing the Ecosystem of Open Science</h1>
+    <div class="abstract-box">
+  <p class="subtitle">This page presents an interactive, story-driven view of our research on how the term &quot;ecosystem&quot; is used in Open Science discourse.</p>
+</div>
 
-    <h2>1. Ontology Network (Level 2 Scroll)</h2>
-    <iframe src="knowledge_graph.html"></iframe>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#data">Data</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#results">Results</a>
+      <a href="#taxonomy">Taxonomy</a>
+    </nav>
 
-    <h2>2. Multilayer Semantic + Citation Network</h2>
-    <iframe src="multilayer_network.html"></iframe>
+    
+<p>The term "ecosystem" is frequently used to describe various concepts, not only in open science but also in broader discussions of research and innovation. Despite its widespread use, it is rarely explicitly defined, often functioning as a boundary object that facilitates communication across diverse communities. Systematically documenting its varied, context-dependent meanings presents a significant challenge. This work in progress explores the term "ecosystem" within the discourse of Open Science, offering a systematic approach to mapping its varied meanings and uses.</p>
+<p>We pose a twofold research question: from a social scientific perspective, how can the diverse uses of "ecosystem" be systematically documented? And from a methodological standpoint, how can computational techniques be leveraged to trace such a boundary object?</p>
+<p>Drawing on a curated corpus of 211 scholarly articles and exploratory ontological work, we use LLMs to construct a detailed knowledge graph, yielding 1,067 semantic relations. This graph is then integrated with a citation network to create a multilayer model for analyzing the term's dissemination. Our preliminary results identify seven distinct, data-driven thematic communities. Although the application of knowledge graphs is now an emerging practice, our pipeline offers a novel application for revealing the term's underlying meanings.</p>
+<p>By mapping its surrounding ontology, this ongoing work suggests how such a term allows knowledge to circulate between different scholarly communities, providing deeper insight into the conceptual landscape shaping the digital transition of research.</p>
+
 
-    <footer>
-      <p>Created by Yagmur Ilba | <a href="https://github.com/yagmurilba/Ecosytem-of-Open-Science" target="_blank">GitHub Repo</a></p>
+    <section id="data">
+      <h2>Data Collection</h2>
+      <p>Our initial dataset was built by querying the OpenAlex database using combinations of phrases such as "open science ecosystem", "ecosystem in open access", and others. After cleaning, 211 scholarly articles remained for analysis.</p>
+      <a class="btn-link" href="https://openalex.org/works?page=1&filter=default.search%3A%22open%20science%20ecosystem%22%20OR%20%22open%20access%20ecosystem%22%20OR%20%22ecosystem%20of%20open%20science%22%20OR%20%22ecosystem%20of%20open%20access%22%20OR%20%22open%20science%20of%20the%20ecosystem%22%20OR%20%22open%20access%20of%20the%20ecosystem%22%20OR%20%22ecosystem%20of%20open%20science%22%20OR%20%22ecosystem%20of%20open%20access%22%20OR%20%22ecosystem%20in%20open%20science%22%20OR%20%22ecosystem%20in%20open%20access%22" target="_blank">View Query on OpenAlex</a>
+    </section>
+
+    <section id="methodology">
+  <h2>Methodology Overview</h2>
+  <p>We used GPT-based prompt engineering to extract entity-relation triples centered on the term <em>ecosystem</em>. These were converted into a semantic knowledge graph using NetworkX and Pyvis. Nodes were labeled with a manually refined two-level taxonomy.</p>
+  <p>The semantic network was further enriched with a citation network, forming a <strong>multilayer model</strong> that maps both concepts and communities of scholarship.</p>
+  <div class="graph-preview" style="max-width: 600px; margin: 1rem auto;">
+    <img src="assets/methodology_diagram.png" alt="Methodology Diagram" style="width: 100%; height: auto;">
+  </div>
+  <h3>Boundary Object Pipeline</h3>
+  <p>This study offers a novel methodological workflow to analyze boundary objects using modern computational techniques. While traditional approaches trace term frequency and single-term semantics, our pipeline maps the <em>relational structure</em> of concepts through LLM-supported extraction, taxonomic classification, and community detection. The integration with citation data enables the interpretation of both semantic and social dimensions of conceptual use, offering depth beyond static textual analysis.</p>
+  <h3>Research Question Operationalization</h3>
+  <p>Our study addresses a twofold research question. First, from a social scientific perspective: <strong>How can we systematically document the diverse uses of a boundary object in scholarly literature?</strong> Second, from a methodological standpoint: <strong>How can we leverage computational techniques to trace the evolution and application of such an object?</strong> This pipeline directly responds to both questions, combining qualitative ontology design and quantitative network analytics.</p>
+</section>
+
+
+
+<section id="results">
+  <h2>Results Summary</h2>
+  <p>Our results demonstrate that the term <em>ecosystem</em> acts as a <strong>boundary object</strong>, linking diverse thematic communities in Open Science. In particular, Community 5 shows its use in techno-economic discourse (e.g., "machine learning", "digital transformation"), whereas Community 4 aligns it with policy and governance contexts. These communities frame different priorities through the same term, confirming its flexible communicative function.</p>
+  <p>Our semantic and multilayer network visualizations validate the centrality of core terms like <code>open science</code>, <code>sharing</code>, and <code>repository</code>, while also revealing the bridging function of <code>ecosystem</code> as a node with high betweenness centrality. These patterns support our central thesis: ecosystem is not just a metaphor, but an active, structural mediator in the scholarly landscape.</p>
+      <h2>Results: Semantic and Multilayer Networks</h2>
+
+<h3>Semantic Knowledge Graph</h3>
+<p>Click below to explore the interactive version of the semantic knowledge graph.</p>
+<a href="knowledge_graph.html" target="_blank">
+  <div class="graph-preview">
+    <img src="assets/preview_ontology.png" alt="Ontology Graph Preview">
+  </div>
+</a>
+
+<h3>Multilayer Citation + Semantic Network</h3>
+<p>Click below to open the combined citation + semantic multilayer graph.</p>
+<a href="multilayer_network.html" target="_blank">
+  <div class="graph-preview">
+    <img src="assets/preview_multilayer.png" alt="Multilayer Network Preview">
+  </div>
+</a>
+      <a href="multilayer_network.html" target="_blank">
+        <div class="graph-preview">
+          <img src="assets/preview_multilayer.png" alt="Multilayer Network Preview">
+        </div>
+      </a>
+    </section>
+
+    
+<section id="taxonomy-table">
+  <h2>Two-Level Taxonomy of Thematic Categories</h2>
+  <p>The table below shows the finalized two-level thematic taxonomy used to label nodes in the semantic network. It includes 18 main categories and their corresponding sub-categories extracted and grouped manually after entity cleaning and standardization.</p>
+  <div style="overflow-x:auto;">
+    <table style="width:100%; border-collapse: collapse;">
+      <thead>
+        <tr style="background-color: #f0f0f0;">
+          <th style="text-align:left; padding: 8px; border: 1px solid #ccc;">Main Category</th>
+          <th style="text-align:left; padding: 8px; border: 1px solid #ccc;">Sub-categories (in lowercase)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Economy</td><td>apc, bpc, business, cost, growth, ip, labor, market, innovation</td></tr>
+        <tr><td>Ecosystem</td><td>ecosystem</td></tr>
+        <tr><td>Events</td><td>activities, community building, conference, engagement, initiatives, training</td></tr>
+        <tr><td>Fields and Disciplines</td><td>archaeology, digital humanities, disciplines, engineering, humanities, metascience, ror, social sciences, studies, science</td></tr>
+        <tr><td>Frameworks</td><td>fair, framework, license, metric, norms, principle, project, rights, standards, knowledge commons, decentralized science</td></tr>
+        <tr><td>Institutional Action</td><td>evaluating, funding, monitoring, program, standardization, supporting</td></tr>
+        <tr><td>Open Access</td><td>open access</td></tr>
+        <tr><td>Open Data</td><td>open data</td></tr>
+        <tr><td>Open Government</td><td>open government</td></tr>
+        <tr><td>Open Innovation</td><td>open innovation</td></tr>
+        <tr><td>Open Science</td><td>open science</td></tr>
+        <tr><td>Policies</td><td>advocacy, agreements, governance, plan, policies, strategy</td></tr>
+        <tr><td>Research Outputs / Resources</td><td>article, book, citation, data, indigenous knowledge, journal, metadata, model, ontology, preprint, publications, research output, resource, software, findings</td></tr>
+        <tr><td>Research Processes / Practices</td><td>analyzing, assessment, citation, co-creation, collaboration, communication, control, cooperation, curation, data management, data practices, knowledge transfer, learning, licensing, machine learning, management, peer review, practice, preservation, publishing, research, research process, reuse, sharing, trials, visualizing, workflow</td></tr>
+        <tr><td>Research Values / Virtues</td><td>accessibility, bias, data security, diversity, efficiency, equity, ethics, fair, impact, integrity, interoperability, multilingualism, quality, reproducibility, responsibility, solidarity, transparency, trust, value</td></tr>
+        <tr><td>Science and Society</td><td>citizen science, participation, social justice, society, public goods, digital transformation</td></tr>
+        <tr><td>Sociotechnical Devices</td><td>ai, api, cloud, infrastructure, pid, platform, publications, repository, services, software, technology, tools</td></tr>
+        <tr><td>Stakeholders/Actors</td><td>actor, author, community, european commission, funders, incubators, indigenous people, information professionals, institutions, intermediaries, learned societies, librarians, libraries, organisations, people, policy makers, publishers, researcher, stakeholder, students, team, universities, university presses, users</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="prompt">
+  <h2>LLM Prompt for Knowledge Extraction</h2>
+  <p>The following is the full prompt provided to the GPT-3.5 Turbo model for the extraction of entities and relations from the text chunks. It was specifically designed to extract only meaningful concepts and semantic relationships centered around the word <em>"ecosystem"</em>.</p>
+  <pre style="background:#f5f5f5; padding:1rem; overflow-x:auto; border-left: 4px solid #1a73e8; font-size: 0.85rem;"><code>You are an expert in knowledge extraction.
+Your task:
+- Focus ONLY on text where the word "ecosystem" appears.
+- From those parts, extract meaningful, well-formed entities (as nodes) 
+  and their relationships (as triples).
+
+Guidelines:
+- Include any terms that directly contain the word "ecosystem" 
+  (e.g., "Open Science Ecosystem", "Blockchain Ecosystem") as part 
+  of the concept list.
+- Only include entities that are concrete or conceptual — no vague 
+  or generic entries.
+- Limit to a maximum of 20 concepts and maximum of 20 relations.
+- It is perfectly fine if there are fewer than 20 concepts or 
+  relations, depending on the richness of the information.
+- Do NOT invent or hallucinate content that is not explicitly or 
+  implicitly supported by the text.
+- Prioritize clarity, importance, and relevance.
+- Avoid very long phrases (keep concept labels under 6-7 words).
+- For relations, avoid generic verbs like "is", "are", or 
+  conjugated forms like "includes". Use meaningful, specific verbs 
+  (e.g., "participate in", "enable", "comprise").
+
+Output Format (strictly):
+Return a valid JSON object with exactly these two keys:
+- "concepts": a list of important concept strings
+- "relations": a list of [subject, relation, object] triples
+
+Example:
+{
+  "concepts": ["Open Science Ecosystem", "Repositories", 
+               "Researchers", "Knowledge Sharing"],
+  "relations": [
+    ["Researchers", "participate in", "Open Science Ecosystem"],
+    ["Repositories", "enable", "Knowledge Sharing"]
+  ]
+}
+
+Strict instructions:
+- Only return the JSON object — no explanations, commentary, or 
+  extra text.
+- Do not repeat terms unnecessarily.
+- Ensure that the JSON is valid (no missing commas, brackets, or 
+  quotation marks).
+</code></pre>
+</section>
+
+<footer>
+      <p>Created by Nil Yagmur Ilba | <a href="https://github.com/yagmurilba/Ecosytem-of-Open-Science" target="_blank">GitHub Repo</a></p>
     </footer>
   </div>
 </body>
